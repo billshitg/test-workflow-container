@@ -17,3 +17,9 @@ jobs:
       - name: Check glibc version
         shell: bash
         run: ldd --version
+      - run: |
+          mkdir -p ./release/test/centos/
+          touch ./release/test/centos/test_file.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          path: release/**/*
