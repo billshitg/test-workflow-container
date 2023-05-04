@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Install python3 
         shell: bash
-        run: (sudo yum update -y && sudo yum install -y python3 && yum groupinstall -y "Development Tools" && yum install gcc openssl-devel bzip2-devel libffi-devel -y && alternatives --install /usr/bin/python python /usr/bin/python2 50 && alternatives --install /usr/bin/python python /usr/bin/python3.6 60 && alternatives --config python && python --version && which pip)
+        run: (yum update -y && yum install -y python3 && groupinstall -y "Development Tools" && yum install gcc openssl-devel bzip2-devel libffi-devel -y && alternatives --install /usr/bin/python python /usr/bin/python2 50 && alternatives --install /usr/bin/python python /usr/bin/python3.6 60 && alternatives --config python && python --version && which pip)
       - name: Check glibc version
         shell: bash
         run: ldd --version
