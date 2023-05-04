@@ -8,9 +8,12 @@ jobs:
       image: centos:centos7
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.6
+      - name: Check files 
+        shell: bash
+        run: pwd && ls
+      - name: Install python3 
+        shell: bash
+        run: (yum update -y && yum install -y python3 && yum group install -y "Development Tools" && yum install gcc openssl-devel bzip2-devel libffi-devel -y && alternatives --install /usr/bin/python python /usr/bin/python2 50 && alternatives --install /usr/bin/python python /usr/bin/python3.6 60 && python --version && pip -V)
       - name: Check glibc version
         shell: bash
         run: ldd --version
