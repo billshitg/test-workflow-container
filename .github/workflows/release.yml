@@ -10,3 +10,6 @@ jobs:
       - name: Check glibc version
         shell: bash
         run: ldd --version
+      - name: Check python version
+        shell: bash
+        run: python --version
