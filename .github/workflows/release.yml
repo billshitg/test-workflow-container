@@ -1,0 +1,12 @@
+name: release
+on:
+  workflow_dispatch
+jobs:
+  container-test-job:
+    runs-on: ubuntu-latest
+    container:
+      image: centos:centos7
+    steps:
+      - name: Check glibc version
+        shell: bash
+        run: ldd --version
